@@ -1,14 +1,14 @@
 body {
-  font-family: Arial;
   background: #111;
   color: white;
+  font-family: Arial;
   text-align: center;
+  padding: 40px;
 }
 
 input {
-  width: 350px;
+  width: 300px;
   padding: 10px;
-  font-size: 16px;
 }
 
 button {
@@ -16,7 +16,6 @@ button {
   cursor: pointer;
 }
 
-img {
+#output {
   margin-top: 20px;
-  border-radius: 10px;
 }
