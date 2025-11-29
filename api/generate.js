@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       { input: { prompt } }
     );
 
-    return res.status(200).json({ image: output[0] });
+    res.status(200).json({ image: output[0] });
 
   } catch (err) {
     console.error(err);
