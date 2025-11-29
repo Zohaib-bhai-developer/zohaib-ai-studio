@@ -9,7 +9,8 @@ export default async function handler(req, res) {
     }
 
     const replicate = new Replicate({
-      auth: process.env.REPLICATE_API_TOKEN,
+      auth: process.env.REPLICATE_API_KEY,
+      
     });
 
     const output = await replicate.run(
