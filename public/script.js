@@ -1,8 +1,8 @@
 async function generate() {
   const prompt = document.getElementById("prompt").value;
-  const outputDiv = document.getElementById("output");
+  const output = document.getElementById("output");
 
-  outputDiv.innerHTML = "Generating...";
+  output.innerHTML = "⏳ Generating...";
 
   const res = await fetch("/api/generate", {
     method: "POST",
@@ -13,9 +13,9 @@ async function generate() {
   const data = await res.json();
 
   if (data.error) {
-    outputDiv.innerHTML = `❌ Error: ${data.error}`;
+    output.innerHTML = "❌ Error: " + data.error;
     return;
   }
 
-  outputDiv.innerHTML = `<img src="${data.image}" width="512">`;
+  output.innerHTML = `<img src="${data.image}" width="500">`;
 }
