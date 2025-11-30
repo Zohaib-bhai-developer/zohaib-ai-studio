@@ -1,21 +1,98 @@
+/* ----------- Global Reset ----------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ----------- Body Background (3D style) ----------- */
 body {
-  background: #111;
+  background: url("https://images.unsplash.com/photo-1695653426275-3f0f25bf3cce?auto=format&fit=crop&w=1350&q=80")
+    no-repeat center center/cover;
+  min-height: 100vh;
   color: white;
-  font-family: Arial;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* ----------- Main Container ----------- */
+.container {
+  width: 450px;
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.4);
   text-align: center;
-  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1.2s ease;
 }
 
+/* Fade Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----------- Heading ----------- */
+h1 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+}
+
+/* ----------- Input Box ----------- */
 input {
-  width: 300px;
-  padding: 10px;
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Placeholder Color */
+input::placeholder {
+  color: #eee;
+}
+
+/* ----------- Generate Button ----------- */
 button {
-  padding: 10px 20px;
+  width: 100%;
+  padding: 14px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
+  background: linear-gradient(135deg, #00eaff, #006eff);
+  color: black;
+  font-weight: 600;
+  transition: 0.3s;
 }
 
-#output {
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #00eaff;
+}
+
+/* ----------- Output Image ----------- */
+#output img {
   margin-top: 20px;
+  max-width: 100%;
+  border-radius: 14px;
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
 }
