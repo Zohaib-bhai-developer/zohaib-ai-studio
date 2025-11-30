@@ -1,29 +1,24 @@
-const Replicate = require("replicate");
+import Replicate from "replicate";
 
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   try {
-    if (req.method !== "POST") {
-      return res.status(405).json({ error: "Only POST allowed" });
-    }
-
-    const { prompt } = req.body;
-    if (!prompt) {
-      return res.status(400).json({ error: "Missing prompt" });
-    }
-
     const replicate = new Replicate({
       auth: process.env.REPLICATE_API_KEY
     });
 
+    const { prompt } = req.body;
+
     const output = await replicate.run(
-      "black-forest-labs/flux-schnell",
-      { input: { prompt } }
+      "black-forest-labs/flux-1.1-pro",
+      {
+        input: {
+          prompt: prompt
+        }
+      }
     );
 
-    res.status(200).json({ image: output[0] });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: err.message });
+    res.status(200).json({ image: output });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-};
-
+}
